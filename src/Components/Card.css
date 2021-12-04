@@ -1,0 +1,82 @@
+.Card{
+    margin: 20px;
+    width: 18rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.info{
+    background-color: lightblue;
+    height: 140px;
+    border-radius: 0 0 10px 10px;
+    transition: .3s;
+}
+
+.info:hover{
+    background-color:rgb(104, 153, 168);
+}
+
+.main{
+    display: flex;
+    margin-left: 15%;
+}
+
+h1{
+    margin-bottom: 15px;
+}
+
+.weatherImage{
+    position: relative;
+    border-radius: 50%;
+    margin-left: 10%;
+    bottom:0px;
+    transition: .3s;
+}
+
+.subInfo{
+    margin-top: -10%;
+    margin-bottom: -5%;
+    display:flex;
+    flex-direction: column;
+}
+
+.closing{
+    position: absolute;
+    margin-top:9px;
+    margin-left: 99px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    color:white;
+    background-color: rgb(220,53,69);
+    transition: .2s;
+    border: 2px solid rgb(220,53,69);
+    box-sizing: border-box;
+}
+
+.closing:hover{
+    margin-top:8px;
+    margin-left: 98px;
+    padding: 6px 13px;
+    color:rgb(220,53,69);
+    background-color: white;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.titleLink{
+    position: relative;
+    color:black;
+    text-decoration: none;
+    transition: .3s;
+    background-color: rgb(185, 185, 187);
+    border-radius: 10px;
+    padding: 0px 35px;
+}
+
+.titleLink:hover{
+    color:white;
+    background-color: rgb(96, 96, 98);
+}
+
+
+  

@@ -1,0 +1,23 @@
+input{
+    border-radius:3px;
+    border:none;
+    margin-right:5px;
+    padding:5px;
+    outline: none;
+    font-size: medium;
+  }
+
+.submitButton {
+    font-weight: bold ;
+    border-radius: 5px;
+    color: rgb(64, 167, 88);
+    background-color: transparent;
+    border: 1px solid rgb(64, 167, 88);
+    transition: 0.2s;
+    box-sizing: border-box;
+}
+
+.submitButton:hover {
+    background-color: rgb(64, 167, 88);
+    color: white;  
+}
