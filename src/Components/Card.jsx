@@ -5,20 +5,21 @@ import './Card.css'
 export default function Card(props){
     return(
         <div className="Card">
-            <button className="closing" onClick={props.onClose}> X </button>
-            
-            <h1><Link className="titleLink"  to={`/ciudad/${props.id}`}>{ props.name }</Link></h1>
+            <Link to="/"><button className="closing" onClick={ props.onClose }> X </button></Link>
+            <Link className="cityLink" to={`/city/${ props.id }`}>
+            <h1 className="titleContainer">{ props.name }</h1>
             <div className="info">
                 <div className="main">
-                <h2>
-                    {props.temp}K
-                </h2>
-                <img className="weatherImage" src={`http://openweathermap.org/img/wn/${props.img}@2x.png`} alt="weather representative"/>
+                    <h2 className="temp">
+                        { props.temp }°C
+                    </h2>
+                    <p className="subTemp">{ props.max } | { props.min }</p>
                 </div>
-                <div className="subInfo">
-                <h5><p>{ props.max }K | { props.min }K</p></h5>
+                <div className="weatherImage">
+                    <img src={`http://openweathermap.org/img/wn/${ props.img }@2x.png`} alt="weather representative"/>
                 </div>
-            </div> 
+            </div>
+            </Link>
         </div>
     )
 }
