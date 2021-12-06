@@ -20,8 +20,8 @@ function App() {
         if(resource.main !== undefined){
           console.log(resource)//
           const city = {
-            min: Math.round(resource.main.temp_min),
-            max: Math.round(resource.main.temp_max),
+            min: Math.floor(resource.main.temp_min),
+            max: Math.ceil(resource.main.temp_max),
             img: resource.weather[0].icon,
             id: resource.id,
             wind: resource.wind.speed,

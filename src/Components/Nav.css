@@ -57,6 +57,8 @@
 
 .link:focus {
     background-color:grey;
+    padding-left: 3px;
+    padding-right: 3px;
     border-radius: 5px;
 }
 
@@ -64,6 +66,5 @@
     width:10px;
     height: 0;
     margin:10px;
-
 }
 

@@ -1,0 +1,53 @@
+.nightCard{
+    margin: 20px;
+    width: 18rem;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: navy;
+    transition: .2s;
+}
+
+.nightCard:hover{
+    transform: scale(1.1);
+}
+
+.ClearNight{
+    background-image: url("Clear_Night_Sky.jpg");
+}
+
+.NightClouds{
+    background-image: url("cloudy-night.jpg");
+}
+
+.NightRain{
+    background-image: url("rainy-night.jpg");
+}
+
+.NightThunder{
+    background-image: url("./nighttime-thunderstorm.jpg");
+}
+
+.NightSnow{
+    background-image: url("./snow-night.jpg");
+}
+
+.nightTitleContainer{
+    padding-top: 30px;
+    margin:0;
+    position: relative;
+    color:rgb(192, 212, 248);
+    text-decoration: none;
+    transition: .1s; 
+}
+
+.nightTemp{
+    color:rgb(199, 199, 199);
+    margin-bottom:0px;
+    background-color:none;
+}
+
+.nightSubTemp{
+    color:rgb(149, 149, 149);
+    margin-top: 0px;
+}
+

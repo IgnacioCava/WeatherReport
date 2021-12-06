@@ -2,13 +2,31 @@
     margin: 20px;
     width: 18rem;
     height: fit-content;
-    border-radius: 10px;
-    background-color: rgb(214, 236, 243);
-    transition: .2s;
+    transition: .25s;
 }
 
 .Card:hover{
-    background-color: rgb(173, 173, 240);
+    transform: scale(1.1);
+}
+
+.Clear{
+    background-image: url("./Clear_Sky.jpg");
+}
+
+.Clouds{
+    background-image: url("./cloudy-day.jpg");
+}
+
+.Rain{
+    background-image: url("./rainy-day.jpg");
+}
+
+.Thunder{
+    background-image: url("./daytime-thunderstorm.jpg");
+}
+
+.Snow{
+    background-image: url("./snow-day.jpg");
 }
 
 .closing{
@@ -36,10 +54,13 @@
 }
 
 .titleContainer{
-    padding-top: 30px;
+    padding-top: 25px;
+    padding-bottom: 5px;
     margin:0;
+    border-radius: 10px 10px 0 0;
     position: relative;
-    color:black;
+    color:white;
+    background-color: rgba(0, 0, 0, 0.4);
     text-decoration: none;
     transition: .1s; 
 }
@@ -55,13 +76,19 @@
 }
 
 .temp{
-    color:rgb(41, 41, 41);
+    z-index: 1;
+    color:rgb(17, 27, 82);
     margin-bottom:0px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 5px 5px 0 0;
 }
 
 .subTemp{
-    color:rgb(97, 97, 97);
+    z-index: 1;
+    color:rgb(70, 69, 69);
     margin-top: 0px;
+    background-color: rgba(255, 248, 248, 0.4);
+    border-radius: 0 0 5px 5px;
 }
 
 .weatherImage{
