@@ -26,9 +26,13 @@ function App() {
             id: resource.id,
             wind: resource.wind.speed,
             temp: resource.main.temp,
+            feels_like: resource.main.feels_like,
+            humidity: resource.main.humidity,
             name: resource.name,
             weather: resource.weather[0].main,
+            desc: resource.weather[0].description,
             clouds: resource.clouds.all,
+            pressure: resource.main.pressure,
             latitud: resource.coord.lat,
             longitud: resource.coord.lon
           };
@@ -74,7 +78,7 @@ function App() {
         />
         <Route
           path='/city/:cityID'
-          element={<City onFilter={onFilter}/>}
+          element={<City onFilter={onFilter} onClose={onClose}/>}
         />
       </Routes>
 

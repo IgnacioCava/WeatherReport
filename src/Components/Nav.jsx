@@ -11,7 +11,7 @@ export default function Nav(props){
             <p className="title">Weather App</p>
             <div className="info">
                 <Link to='/' className="link">
-                Climate
+                Home
                 </Link>
                 <hr className="separator"/>
                 <Link to='/about' className="link">

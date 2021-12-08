@@ -1,8 +1,8 @@
 import React from 'react';
 import './City.css'
-import { NavLink, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-export default function City({onFilter}) {
+export default function City({onFilter, onClose}) {
 
     const { cityID } = useParams()
 
@@ -10,21 +10,48 @@ export default function City({onFilter}) {
 
     if(city){
         return (
-            <div className="ciudad">
-                    <div className="container">
-                        <h2>{city.name}</h2>
-                        <div className="maxInfo">
-                            <div>Temperature: {city.temp}°C</div>
-                            <div>Climate: {city.weather}</div>
-                            <div>Wind speeds: {city.wind} km/h</div>
-                            <div>Cloudiness: {city.clouds}</div>
-                            <div>Latitude: {city.latitud}º</div>
-                            <div>Longitude: {city.longitud}º</div>
+            <div className="city">
+                <div className="container">
+               
+                    <div>
+                        <div>
+                            <h3 className='maxTitle'>{city.name}</h3>
+                            <hr className="sep"/>
                         </div>
+
+                        <div style={{'marginLeft':'10px'}} className="tempData">
+                            <p className="back"><Link className="backLink" to='/'>{"<"} </Link></p>
+                            <div style={{'paddingTop':'10px'}}>
+                                <h1 style={{margin:0, fontSize:40}}>{city.temp}°</h1>
+                                <p style={{margin:0}}>{city.min}° | {city.max}°</p>
+                            </div>
+
+                            <div>
+                                <img src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`}/>
+                            </div>
+
+                            <div style={{paddingTop:'25px',marginRight:'5px'}}>
+                                <p style={{margin:'0', 'fontSize':'larger', 'textAlign':'left'}}>{city.desc}</p>
+                                <p style={{margin:'0', 'fontSize':'small'}}>Feels like {city.feels_like}°</p>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
+
+                    <div className="mainData">
+
+                        <div style={{'textAlign':'left'}} className="atmosphericData">
+                            <p>{city.wind} m/s</p>
+                            <p>{city.humidity}%</p>
+                            <p>{city.pressure} mmHg</p>
+                        </div>
+
+                    </div>
+                    <div><Link to="/"><button className="closingMax" onClick={ onClose }> X </button></Link></div>
                     
-                    <NavLink className="backSpace" to='/'>back</NavLink> 
-                    
+                </div>
+                
             </div>
                 )
             } else {
