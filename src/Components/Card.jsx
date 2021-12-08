@@ -23,7 +23,7 @@ export default function Card({id,name,temp,min,max,img,weather,onClose}){
                     (weather==="Thunderstorm"&&((cycle&&"Thunder")||"NightThunder"))||
                     (weather==="Snow"&&((cycle&&"Snow")||"NightSnow"))}
                 >
-                <Link to="/"><button className="closing" onClick={ onClose }> X </button></Link>
+                <button className="closing" onClick={ onClose }> X </button>
                 <Link className="cityLink" to={`/city/${ id }`}>
                 <h1 className={(cycle&&"titleContainer")||"nightTitleContainer"}>{ name }</h1>
                 <div className="info">

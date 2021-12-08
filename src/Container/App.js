@@ -78,7 +78,7 @@ function App() {
         />
         <Route
           path='/city/:cityID'
-          element={<City onFilter={onFilter} onClose={onClose}/>}
+          element={<City onFilter={onFilter} onClose={onClose} cities={ cities }/>}
         />
       </Routes>
 
