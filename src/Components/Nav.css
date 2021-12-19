@@ -1,15 +1,14 @@
 .header{
     position: fixed;
     display: flex;
-    background-color: rgb(53,58,64);
-    margin:5px;
-    margin-top:0;
+    background-color: rgb(53, 58, 64);
     justify-content: space-between;
     align-items: center;
     border-radius: 0 0 5px 5px;
     z-index: 2;
-    width: 99.3%;
-
+    right:5px;
+    left:5px;
+    
 }
 
 .titleLogo{

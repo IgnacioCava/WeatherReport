@@ -5,6 +5,11 @@ import Cards from '../Components/Cards.jsx'
 import Nav from '../Components/Nav.jsx'
 import City from '../Components/City.jsx'
 import About from '../Components/About.jsx'
+import './dusk.jpg'
+import './dawn.jpg'
+import './day.jpg'
+import './night.jpg'
+import './bodyBackground.css'
 
 function App() {
 
@@ -72,6 +77,17 @@ function App() {
         return null;
     }
   }
+
+  /* SET DYNAMIC BACKGROUND FOR HTML BODY BASED ON THE USER'S DEVICE'S TIME */
+  var currentDate = new Date();
+  var time=currentDate.getHours()
+
+  if(time>=5&&time<9) document.body.className='dawn'
+  if(time>=9&&time<=17) document.body.className='day'
+  if(time>17&&time<20) document.body.className='dusk'
+  if(time>=20&&time<5) document.body.className='night'
+  console.log(time, document.body.className)
+  /**************************************************************************/
 
   return (
     <div className="App">

@@ -1,0 +1,22 @@
+body{
+    
+    background-position: top;
+    background-size: 100vw 100vh;/*Remember about relative units, they are useful*/
+}
+
+
+.dusk{
+    background-image:url("./dusk.jpg");
+}
+
+.dawn{
+    background-image:url("./dawn.jpg");
+}
+
+.day{
+    background-image:url("./day.jpg");
+}
+
+.night{
+    background-image:url("./night.jpg");
+}
