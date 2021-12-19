@@ -49,8 +49,7 @@ function App() {
   /******DETECT USER'S CURRENT LOCATION********/
   var IP=''
 
-
-  if(cities.length==0){
+  if(cities.length===0){
     fetch(`http://ipwhois.app/json/${IP}`)
     .then(r => r.json())
     .then((resource) => {
@@ -77,6 +76,7 @@ function App() {
     <div className="App">
       
       <Nav onSearch={ onSearch }/>
+      <div style={{height:'70px'}}></div>
       <Routes>
         <Route
           path='/'

@@ -29,7 +29,7 @@ export default function City({onFilter, onClose, cities}) {
                     (weather==="Snow"&&((cycle&&"Snow")||"NightSnow"))}>
                         <div className="container">
                             
-                            <div style={{marginLeft:'25px'}}>
+                            <div className='mainData'>
                                 <div style={{textAlign:'center'}}>
                                     <h3 className={(cycle&&'maxTitle')||'nightMaxTitle'}>{city.name}</h3>
                                     <hr className={(cycle&&'sep')||'nightSep'}/>
@@ -37,34 +37,33 @@ export default function City({onFilter, onClose, cities}) {
 
                                 <div className={(cycle&&'tempData')||'nightTempData'}>
                                     <div className='CitySeparations' style={{'paddingTop':'10px'}}>
-                                        <h1 style={{margin:0, fontSize:40}}>{city.temp}°</h1>
+                                        <h1 className='primaryTemp'>{city.temp}°</h1>
                                         <p style={{margin:0}}>{city.min}° | {city.max}°</p>
                                     </div>
-
                                     <div className='CitySeparations'>
                                         <img src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`}/>
                                     </div>
 
-                                    <div className='CitySeparations' className='feelsLike' >
+                                    <div className='feelsLike CitySeparations'>
                                         <p style={{margin:'0', 'fontSize':'larger'}}>{city.desc.charAt(0).toUpperCase()+city.desc.slice(1)}</p>
                                         <p style={{margin:'0', 'fontSize':'small'}}>Feels like {city.feels_like}°</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="mainData">
+                            <div className="miscData">
                                 <div className={(cycle&&'atmosphericData')||'nightAtmosphericData'}>
-                                    <div className='mainDataSpace'>
+                                    <div className='miscDataSpace'>
                                         <img className='icon' src={wind}/>
                                         {city.wind} m/s
                                     </div>
                                     
-                                    <div className='mainDataSpace'>
+                                    <div className='miscDataSpace'>
                                         <img className='icon' src={humidity}/>
                                         {city.humidity}%
                                     </div>
 
-                                    <div className='mainDataSpace'>
+                                    <div className='miscDataSpace'>
                                         <img className='icon' src={pressure}/>
                                         {city.pressure} mmHg
                                     </div>

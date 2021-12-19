@@ -1,16 +1,41 @@
 .city{
     background-color: rgba(155, 155, 235, 1);
-    width:55%;
+    width:fit-content;
     margin: auto;
     margin-top:30px;
     margin-bottom:30px;
     border-radius: 15px;
+    
 }
 
 .container{
     display: flex;
     justify-content: space-between;
 }
+
+.mainData{
+    margin-left:25px;
+    transition:.5s;
+}
+
+.miscData{
+    display: flex;
+    padding: 15px 0;
+    margin-left:10px;
+    transition:.5s;
+}
+
+.CitySeparations{
+    margin-right:25px;
+    transition:.5s;
+}
+
+.primaryTemp{
+    margin:0; 
+    font-size:40px;
+}
+
+
 
 .maxTitle{
     font-size: xx-large;
@@ -37,10 +62,6 @@
     border:none;
 }
 
-.CitySeparations{
-    margin-right:25px
-}
-
 .tempData{
     display: flex;
     margin-left: 10px;
@@ -52,10 +73,7 @@
     margin-left: 10px;
 }
 
-.mainData{
-    display: flex;
-    padding: 15px 0;
-}
+
 
 .feelsLike{
     display:flex;
@@ -86,10 +104,9 @@
     justify-content: space-evenly;
 }
 
-.mainDataSpace{
+.miscDataSpace{
     display: flex;
     align-items: center;
-    
 }
 
 .icon{
@@ -118,16 +135,45 @@
     border-radius: 4px;
 }
 
-@media (max-width:1300px){
-    .city{
-        width:500px;
-    }
-
+@media only screen and (max-width: 768px){
     .container{
-        justify-content: normal;
+        flex-direction: column;
     }
-
-    .back{
-        padding-top:90px
+    .mainData{
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .miscData{
+        margin-left:5px
+    }
+    .CitySeparations{
+        margin-right:0px
+    }
+    .primaryTemp{
+        font-size:35px;
+    }
+    .closingMax{
+        width: fit-content;
+        margin: 0;
+        border-radius: 8px 8px 0 0;
+    }
+    .atmosphericData{
+        flex-direction: row;
+        width: 100%;
+    }
+    .nightAtmosphericData{
+        flex-direction: row;
+        width: 100%;
+    }
+    .icon{
+        margin:5px
+    }
+    .miscDataSpace{
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+    .miscData{
+        margin: 0 5px 0 5px;
+        padding-top:0
     }
 }
