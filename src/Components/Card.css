@@ -3,6 +3,7 @@
     width: 18rem;
     height: fit-content;
     transition: .25s;
+    
 }
 
 .Card:hover{
@@ -19,6 +20,7 @@
 
 .Rain{
     background-image: url("./rainy-day.jpg");
+    
 }
 
 .Thunder{
@@ -28,6 +30,13 @@
 .Snow{
     background-image: url("./snow-day.jpg");
 }
+
+.Clear,.Clouds,.Rain,.Thunder,.Snow,.ClearNight,.NightClouds,.NightRain,.NightThunder,.NightSnow{
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+     
 
 .closing{
     position: absolute;

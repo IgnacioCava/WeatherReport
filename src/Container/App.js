@@ -54,6 +54,7 @@ function App() {
     .then(r => r.json())
     .then((resource) => {
       onSearch(resource.city)
+      console.log(resource)
   })
   }
   /*********************************************/
@@ -80,7 +81,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={<Cards cities={ cities } onClose={ onClose }/>}
+          element={cities.length==1?<City onFilter={onFilter} onClose={onClose} cities={ cities } only={cities[0].id}/>:<Cards cities={ cities } onClose={ onClose }/>}
         />
         <Route 
           path='/about'

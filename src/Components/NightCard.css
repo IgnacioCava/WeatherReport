@@ -17,6 +17,9 @@
 
 .NightClouds{
     background-image: url("cloudy-night.jpg");
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
 .NightRain{

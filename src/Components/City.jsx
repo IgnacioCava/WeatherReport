@@ -9,11 +9,12 @@ import humidity from './humidity.png'
 import pressure from './pressure.png'
 
 
-export default function City({onFilter, onClose, cities}) {
+export default function City({onFilter, onClose, cities, only}) {
 
     const { cityID } = useParams()
+    var city = onFilter(cityID)
 
-    const city = onFilter(cityID) 
+    if(only) city = onFilter(only)
     
     if(city){
         var weather = city.weather
@@ -36,12 +37,12 @@ export default function City({onFilter, onClose, cities}) {
                                 </div>
 
                                 <div className={(cycle&&'tempData')||'nightTempData'}>
-                                    <div className='CitySeparations' style={{'paddingTop':'10px'}}>
+                                    <div className='CitySeparations'>
                                         <h1 className='primaryTemp'>{city.temp}°</h1>
                                         <p style={{margin:0}}>{city.min}° | {city.max}°</p>
                                     </div>
                                     <div className='CitySeparations'>
-                                        <img src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`}/>
+                                        <img className='weatherIcon' src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`}/>
                                     </div>
 
                                     <div className='feelsLike CitySeparations'>
@@ -65,7 +66,7 @@ export default function City({onFilter, onClose, cities}) {
 
                                     <div className='miscDataSpace'>
                                         <img className='icon' src={pressure}/>
-                                        {city.pressure} mmHg
+                                        {parseFloat(city.pressure/760).toFixed(2)} atm
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +77,7 @@ export default function City({onFilter, onClose, cities}) {
                     </div>
                     
                 </div>
-                <Cards cities={ cities.filter(c => c.id !== parseInt(cityID)) } onClose={ onClose }/>
+                <Cards cities={ only?[]:cities.filter(c => c.id !== parseInt(cityID)) } onClose={ onClose }/>
             </div>
             )
             } else {

@@ -5,12 +5,14 @@
     margin-top:30px;
     margin-bottom:30px;
     border-radius: 15px;
-    
 }
 
 .container{
     display: flex;
     justify-content: space-between;
+    backdrop-filter: blur(2px);
+    border-radius: 15px;
+    
 }
 
 .mainData{
@@ -25,6 +27,8 @@
     transition:.5s;
 }
 
+
+
 .CitySeparations{
     margin-right:25px;
     transition:.5s;
@@ -34,8 +38,6 @@
     margin:0; 
     font-size:40px;
 }
-
-
 
 .maxTitle{
     font-size: xx-large;
@@ -64,7 +66,6 @@
 
 .tempData{
     display: flex;
-    margin-left: 10px;
 }
 
 .nightTempData{
@@ -142,9 +143,15 @@
     .mainData{
         margin-left:10px;
         margin-right:10px;
+        margin-bottom:10px
     }
     .miscData{
-        margin-left:5px
+        margin-left:5px;
+    }
+    .weatherIcon{
+        width:70px;
+        height:70px; 
+        object-fit:none;
     }
     .CitySeparations{
         margin-right:0px
