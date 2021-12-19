@@ -7,9 +7,13 @@ import './Nav.css'
 export default function Nav(props){
     return(
         <div className="header">
-            <Link to='/'><img className="logo" src={Logo} alt="Logo"/></Link>
-            <p className="title">Weather App</p>
-            <div className="info">
+            
+            <div className="titleLogo">
+                <Link to='/'><img className="logo" src={Logo} alt="Logo"/></Link>
+                <p className="title">Weather App</p>
+            </div>
+
+            <div className="navigation">
                 <Link to='/' className="link">
                 Home
                 </Link>
@@ -18,7 +22,11 @@ export default function Nav(props){
                 About
                 </Link>
             </div>
-            <div className="SearchBar"><SearchBar onSearch={props.onSearch}/></div>
+
+            <div className="SearchBar">
+                <SearchBar onSearch={props.onSearch}/>
+            </div>
+
         </div>
     )
 }

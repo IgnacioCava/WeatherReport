@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState} from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Cards from '../Components/Cards.jsx'
@@ -11,14 +11,12 @@ function App() {
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
   const [cities, setCities] = useState([]);
 
-
-
   function onSearch(city) {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
       .then(r => r.json())
       .then((resource) => {
         if(resource.main !== undefined){
-          console.log(resource)//
+          console.log(resource)
           const city = {
             min: Math.floor(resource.main.temp_min),
             max: Math.ceil(resource.main.temp_max),
@@ -48,6 +46,18 @@ function App() {
 
   }
 
+  /******DETECT USER'S CURRENT LOCATION********/
+  var IP=''
+
+
+  if(cities.length==0){
+    fetch(`http://ipwhois.app/json/${IP}`)
+    .then(r => r.json())
+    .then((resource) => {
+      onSearch(resource.city)
+  })
+  }
+  /*********************************************/
 
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array

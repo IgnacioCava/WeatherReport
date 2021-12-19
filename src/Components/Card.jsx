@@ -13,7 +13,6 @@ import './snow-night.jpg'
 
 export default function Card({id,name,temp,min,max,img,weather,onClose}){
     var cycle = img.includes('d')
-    
         return(
             <div className={(cycle&&"Card")||"nightCard"}>
                 <div style={{'borderRadius':'10px'}} className={

@@ -1,42 +1,37 @@
 .header{
-    position: absolute;
     display: flex;
     background-color: rgb(53,58,64);
-    top: 5px;
-    left: 5px;
-    right: 5px;
+    margin:5px;
+    justify-content: space-between;
+    align-items: center;
     border-radius: 5px;
 }
 
+.titleLogo{
+    display:flex;
+    align-items: center;
+}
+
 .logo{
+    margin-left: 5px;
     height: 40px;
     width: 40px;
-    position: relative;
-    top:5px;
-    left:5px;
 }
 
 .title{
-    position: relative;
-    left:5px;
     color:white;
-    top:-2px;
-    margin-left:10px;
+    margin-left:5px
 }
 
 .SearchBar{
-    position: absolute;
-    right:0;
-    top:21%;
     border-radius:5px;
 }
 
-.info {
-    position: relative;
-    right:5%;
-    text-align: middle;
-    margin: auto;
-
+.navigation {
+    display: flex;
+    justify-content: center;
+    transition: .3s;
+    
 }
 
 .link {
@@ -64,7 +59,6 @@
 
 .separator{
     width:10px;
-    height: 0;
     margin:10px;
 }
 

@@ -1,7 +1,9 @@
 .city{
     background-color: rgba(155, 155, 235, 1);
-    width:40%;
-    margin: 70px auto 20px;
+    width:55%;
+    margin: auto;
+    margin-top:30px;
+    margin-bottom:30px;
     border-radius: 15px;
 }
 
@@ -11,36 +13,32 @@
 }
 
 .maxTitle{
+    font-size: xx-large;
     margin:0px;
     padding-top: 20px;
-    margin-left:40px;
-    text-align: left;
 }
 
 .nightMaxTitle{
     color:white;
+    font-size: xx-large;
     margin:0px;
     padding-top: 20px;
-    margin-left:40px;
-    text-align: left;
 }
 
 .sep{
     height: 1px;
     background-color:black;
     border:none;
-    width:85%;
-    margin-left:40px;
-    margin-bottom:0;
 }
 
 .nightSep{
     height: 1px;
     background-color:rgb(255, 255, 255);
     border:none;
-    width:85%;
-    margin-left:40px;
-    margin-bottom:0;
+}
+
+.CitySeparations{
+    margin-right:25px
 }
 
 .tempData{
@@ -59,46 +57,44 @@
     padding: 15px 0;
 }
 
+.feelsLike{
+    display:flex;
+    flex-direction:column; 
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 15px;
+}
+
 .atmosphericData{
+    display: flex;
+    flex-direction: column;
     text-align: left;
     padding: 0 10px;
     background-color:rgba(255, 255, 255, 0.15);
     border-radius: 6px;
+    justify-content: space-evenly;
 }
 
 .nightAtmosphericData{
+    display: flex;
+    flex-direction: column;
     color:white;
     text-align: left;
     padding: 0 10px;
     background-color:rgba(255, 255, 255, 0.15);
     border-radius: 6px;
+    justify-content: space-evenly;
 }
 
-.back{
-    float:left;
-    vertical-align:bottom;
-    margin:0;
-    padding-top:70px;
-    margin-right:10px;
+.mainDataSpace{
+    display: flex;
+    align-items: center;
+    
 }
 
-.backLink{
-    color:black;
-    border-radius: 50%;
-    transition: .2s;
-    text-decoration: none;
-    padding: 0 8px 2px 5px;
-    line-height: 10px;
-}
-
-.backLink:active{
-    color: white;
-    background-color:rgb(82, 80, 80);
-}
-
-.backLink:hover{
-    color: white;
-    background-color:rgb(82, 80, 80);
+.icon{
+    width: 30px;
+    margin-right: 3px;
 }
 
 .closingMax{

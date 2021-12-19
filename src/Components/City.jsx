@@ -4,6 +4,9 @@ import { Link, useParams } from 'react-router-dom';
 import Cards from './Cards.jsx'
 import './Card.css'
 import './NightCard.css'
+import wind from './Wind.png'
+import humidity from './humidity.png'
+import pressure from './pressure.png'
 
 
 export default function City({onFilter, onClose, cities}) {
@@ -26,51 +29,57 @@ export default function City({onFilter, onClose, cities}) {
                     (weather==="Snow"&&((cycle&&"Snow")||"NightSnow"))}>
                         <div className="container">
                             
-                            <div>
-                                <div>
+                            <div style={{marginLeft:'25px'}}>
+                                <div style={{textAlign:'center'}}>
                                     <h3 className={(cycle&&'maxTitle')||'nightMaxTitle'}>{city.name}</h3>
                                     <hr className={(cycle&&'sep')||'nightSep'}/>
                                 </div>
 
                                 <div className={(cycle&&'tempData')||'nightTempData'}>
-                                    <p className="back"><Link className="backLink" to='/'>{"<"} </Link></p>
-                                    <div style={{'paddingTop':'10px'}}>
+                                    <div className='CitySeparations' style={{'paddingTop':'10px'}}>
                                         <h1 style={{margin:0, fontSize:40}}>{city.temp}°</h1>
                                         <p style={{margin:0}}>{city.min}° | {city.max}°</p>
                                     </div>
 
-                                    <div>
+                                    <div className='CitySeparations'>
                                         <img src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`}/>
                                     </div>
 
-                                    <div style={{paddingTop:'25px',marginRight:'5px'}}>
-                                        <p style={{margin:'0', 'fontSize':'larger', 'textAlign':'left'}}>{city.desc}</p>
+                                    <div className='CitySeparations' className='feelsLike' >
+                                        <p style={{margin:'0', 'fontSize':'larger'}}>{city.desc.charAt(0).toUpperCase()+city.desc.slice(1)}</p>
                                         <p style={{margin:'0', 'fontSize':'small'}}>Feels like {city.feels_like}°</p>
                                     </div>
-                                    
                                 </div>
-                                
                             </div>
 
                             <div className="mainData">
-
                                 <div className={(cycle&&'atmosphericData')||'nightAtmosphericData'}>
-                                    <p>{city.wind} m/s</p>
-                                    <p>{city.humidity}%</p>
-                                    <p>{city.pressure} mmHg</p>
-                                </div>
+                                    <div className='mainDataSpace'>
+                                        <img className='icon' src={wind}/>
+                                        {city.wind} m/s
+                                    </div>
+                                    
+                                    <div className='mainDataSpace'>
+                                        <img className='icon' src={humidity}/>
+                                        {city.humidity}%
+                                    </div>
 
+                                    <div className='mainDataSpace'>
+                                        <img className='icon' src={pressure}/>
+                                        {city.pressure} mmHg
+                                    </div>
+                                </div>
                             </div>
+
                             <div><Link to="/"><button className="closingMax" onClick={ onClose }> X </button></Link></div>
                             
                         </div>
                     </div>
                     
                 </div>
-                <Cards cities={ cities.filter(c => c.id != parseInt(cityID)) } onClose={ onClose }/>
+                <Cards cities={ cities.filter(c => c.id !== parseInt(cityID)) } onClose={ onClose }/>
             </div>
-            
-                )
+            )
             } else {
                 return window.location.replace("/");}
     

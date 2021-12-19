@@ -1,20 +1,23 @@
 input{
-    border-radius:3px;
     border:none;
-    margin-right:5px;
     padding:5px;
     outline: none;
     font-size: medium;
-  }
+}
+
+.inputEntry{
+    border-radius: 4px 0 0 4px;
+    border: 1px solid white;
+}
 
 .submitButton {
-    font-weight: bold ;
-    border-radius: 5px;
+    font-weight: bold;
     color: rgb(64, 167, 88);
     background-color: transparent;
     border: 1px solid rgb(64, 167, 88);
+    border-radius: 0 4px 4px 0;
+    margin-right:5px;
     transition: 0.2s;
-    box-sizing: border-box;
 }
 
 .submitButton:hover {
