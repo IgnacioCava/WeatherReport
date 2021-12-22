@@ -54,17 +54,17 @@ function App() {
   }
   
   /******DETECT USER'S CURRENT LOCATION********/
-  var IP=''
+  // var IP=''
   
-  if(cities.length===0){
-    fetch(`http://ipwhois.app/json/${IP}`)
-    .then(r => r.json())
-    .then((resource) => {
-      onSearch(resource.city, resource.country_code)
-      console.log(resource)
-    })
-  }
-  /*********************************************/
+  // if(cities.length===0){
+  //   fetch(`http://ipwhois.app/json/${IP}`)
+  //   .then(r => r.json())
+  //   .then((resource) => {
+  //     onSearch(resource.city, resource.country_code)
+  //     console.log(resource)
+  //   })
+  // }
+  /********************************************/
   
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array
@@ -88,7 +88,6 @@ function App() {
   if(time>=9&&time<=17) document.body.className='day'
   if(time>17&&time<20) document.body.className='dusk'
   if(time>=20||time<5) document.body.className='night'
-  console.log(time, document.body.className)
   /**************************************************************************/
 
   return (
@@ -99,7 +98,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={cities.length==1?<City onFilter={onFilter} onClose={(id) => onClose(id)} cities={ cities }/>:<Cards cities={ cities } onClose={ onClose }/>}
+          element={cities.length===1?<City onFilter={onFilter} onClose={(id) => onClose(id)} cities={ cities }/>:<Cards cities={ cities } onClose={ onClose }/>}
         />
         <Route 
           path='/about'

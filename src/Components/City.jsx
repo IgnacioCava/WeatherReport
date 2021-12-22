@@ -23,11 +23,14 @@ export default function City({onFilter, onClose, cities}) {
             <div>
                 <div className="city">
                     <div style={{borderRadius:'15px'}} className={
-                    (weather==="Clear"&&((cycle&&"Clear")||"ClearNight"))||
-                    (weather==="Clouds"&&((cycle&&"Clouds")||"NightClouds"))||
-                    (weather==="Rain"||weather==="Drizzle")&&((cycle&&"Rain")||"NightRain")||
-                    (weather==="Thunderstorm"&&((cycle&&"Thunder")||"NightThunder"))||
-                    (weather==="Snow"&&((cycle&&"Snow")||"NightSnow"))}>
+
+                    weather==="Clear"?(cycle?"Clear":"ClearNight"):
+                    weather==="Clouds"?(cycle?"Clouds":"NightClouds"):
+                    (weather==="Rain"||weather==="Drizzle")?(cycle?"Rain":"NightRain"):
+                    weather==="Thunderstorm"?(cycle?"Thunder":"NightThunder"):
+                    (cycle?"Snow":"NightSnow")
+                
+                    }>
                         <div className="container">
                             
                             <div className='mainData'>
@@ -71,13 +74,13 @@ export default function City({onFilter, onClose, cities}) {
                                 </div>
                             </div>
 
-                            <div><Link to="/"><button className="closingMax" onClick={ ()=>onClose(parseInt(cityID)) }> X </button></Link></div>
+                            <div><Link to="/"><button className="closingMax" onClick={ ()=>onClose(parseInt(cityID?cityID:cities[0].id)) }> X </button></Link></div>
                             
                         </div>
                     </div>
                     
                 </div>
-                {cities.length===1?[]:<Cards cities={ cities.filter(c => c.id != parseInt(cityID)) } onClose={ onClose }/>}
+                {cities.length===1?[]:<Cards cities={ cities.filter(c => c.id !== parseInt(cityID)) } onClose={ onClose }/>}
             </div>
             )
             } else return window.location.replace("/");
