@@ -5,25 +5,27 @@ import Cards from '../Components/Cards.jsx'
 import Nav from '../Components/Nav.jsx'
 import City from '../Components/City.jsx'
 import About from '../Components/About.jsx'
-import './dusk.jpg'
-import './dawn.jpg'
-import './day.jpg'
-import './night.jpg'
-import './bodyBackground.css'
+import './backgrounds/dusk.jpg'
+import './backgrounds/dawn.jpg'
+import './backgrounds/day.jpg'
+import './backgrounds/night.jpg'
+import './backgrounds/bodyBackground.css'
 
 function App() {
 
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
   const [cities, setCities] = useState([]);
 
-  function onSearch(city) {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
-      .then(r => r.json())
+  function onSearch(city,cityCode) {
+    var findings
+    if(cityCode) findings=fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${cityCode}&appid=${apiKey}&units=metric`)//&units=metric&lang=${language}
+    else findings=fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+      findings.then(r => r.json())
       .then((resource) => {
         if(resource.main !== undefined){
           console.log(resource)
           const city = {
-            min: Math.floor(resource.main.temp_min),
+            min: ~~resource.main.temp_min,
             max: Math.ceil(resource.main.temp_max),
             img: resource.weather[0].icon,
             id: resource.id,
@@ -42,7 +44,7 @@ function App() {
 
           let foundCity = cities.find(c => c.id === city.id)
           if(foundCity) return alert('Esta ciudad ya se encuentra en la lista')
-          else return setCities(previousCities => [...previousCities, city]);
+          else setCities(previousCities => [...previousCities, city]);
           
         } else {
           alert('Ciudad no encontrada');
@@ -50,20 +52,20 @@ function App() {
       });
 
   }
-
+  
   /******DETECT USER'S CURRENT LOCATION********/
   var IP=''
-
+  
   if(cities.length===0){
     fetch(`http://ipwhois.app/json/${IP}`)
     .then(r => r.json())
     .then((resource) => {
-      onSearch(resource.city)
+      onSearch(resource.city, resource.country_code)
       console.log(resource)
-  })
+    })
   }
   /*********************************************/
-
+  
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array
   }
@@ -85,7 +87,7 @@ function App() {
   if(time>=5&&time<9) document.body.className='dawn'
   if(time>=9&&time<=17) document.body.className='day'
   if(time>17&&time<20) document.body.className='dusk'
-  if(time>=20&&time<5) document.body.className='night'
+  if(time>=20||time<5) document.body.className='night'
   console.log(time, document.body.className)
   /**************************************************************************/
 
@@ -97,7 +99,7 @@ function App() {
       <Routes>
         <Route
           path='/'
-          element={cities.length==1?<City onFilter={onFilter} onClose={onClose} cities={ cities } only={cities[0].id}/>:<Cards cities={ cities } onClose={ onClose }/>}
+          element={cities.length==1?<City onFilter={onFilter} onClose={(id) => onClose(id)} cities={ cities }/>:<Cards cities={ cities } onClose={ onClose }/>}
         />
         <Route 
           path='/about'
@@ -105,7 +107,7 @@ function App() {
         />
         <Route
           path='/city/:cityID'
-          element={<City onFilter={onFilter} onClose={onClose} cities={ cities }/>}
+          element={<City onFilter={onFilter} onClose={ (id) => onClose(id) } cities={ cities }/>}
         />
       </Routes>
 

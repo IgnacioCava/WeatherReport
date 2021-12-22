@@ -11,29 +11,6 @@
     transform: scale(1.1);
 }
 
-.ClearNight{
-    background-image: url("Clear_Night_Sky.jpg");
-}
-
-.NightClouds{
-    background-image: url("cloudy-night.jpg");
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-}
-
-.NightRain{
-    background-image: url("rainy-night.jpg");
-}
-
-.NightThunder{
-    background-image: url("./nighttime-thunderstorm.jpg");
-}
-
-.NightSnow{
-    background-image: url("./snow-night.jpg");
-}
-
 .nightTitleContainer{
     padding-top: 30px;
     margin:0;

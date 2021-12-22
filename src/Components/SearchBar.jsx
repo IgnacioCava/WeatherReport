@@ -9,8 +9,11 @@ export default function SearchBar({onSearch}){
         <div>
             <form onSubmit={(evnt) => {
                 evnt.preventDefault()
-                onSearch(newCity)
-                newCitySetter('')
+                if(newCity==='') alert('Debe ingresar una ciudad')
+                else {
+                    onSearch(newCity)
+                    newCitySetter('')
+                }
             }}>
             <input type="text" className="inputEntry" placeholder="Busque una ciudad..." value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
             <input type="submit" className="submitButton" value="Buscar"/>

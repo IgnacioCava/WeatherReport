@@ -10,33 +10,6 @@
     transform: scale(1.1);
 }
 
-.Clear{
-    background-image: url("./Clear_Sky.jpg");
-}
-
-.Clouds{
-    background-image: url("./cloudy-day.jpg");
-}
-
-.Rain{
-    background-image: url("./rainy-day.jpg");
-    
-}
-
-.Thunder{
-    background-image: url("./daytime-thunderstorm.jpg");
-}
-
-.Snow{
-    background-image: url("./snow-day.jpg");
-}
-
-.Clear,.Clouds,.Rain,.Thunder,.Snow,.ClearNight,.NightClouds,.NightRain,.NightThunder,.NightSnow{
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-}
-
 .closing{
     position: absolute;
     z-index: 1;
