@@ -14,6 +14,7 @@
 .titleLogo{
     display:flex;
     align-items: center;
+    
 }
 
 .logo{
@@ -35,7 +36,7 @@
     display: flex;
     justify-content: center;
     transition: .3s;
-    
+    background-color: rgb(53, 58, 64);
 }
 
 .link {
@@ -44,6 +45,10 @@
     border-radius: 100%;
     transition: .3s;
     text-decoration: none;
+    border: none;
+    font-size:16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    padding:0
 }
 
 .link:hover {
@@ -64,5 +69,73 @@
 .separator{
     width:10px;
     margin:10px;
+    height: 0px;
+}
+
+.mobileNav{
+    position: fixed;
+    display: none;
+}
+
+.navButton{
+    display: none;
+    font-weight: bolder;
+    font-size: x-large;
+    color:white
+}
+
+.totalNav{
+    display: flex;
+    flex-direction: column;
+    transition: .4s;
+}
+
+@media only screen and (max-width:768px){
+
+    .title{
+        display:none
+    }
+
+    .totalNav{
+        height: 0;
+        position: fixed;
+        bottom:0;
+        left:50%;
+        transform: translate( -50%);
+      /*transform: translate(calc(50vw - 50%), calc(50vh - 50%)); for both horizontal and vertical centering*/
+        justify-content: center;
+        padding:5px;
+        border-radius: 5px 5px 0 0;
+        align-items: center;
+    }
+
+    .totalNav:hover{
+        height:10%;
+    }
+
+    .totalNav>div>p{
+        margin:0;
+        transition: .4s;
+    }
+    .totalNav:hover>div>p{
+        transform: rotate(-180deg);
+    }
+
+    .navButton{
+        display: unset;
+        background-color: rgb(53, 58, 64);
+        width:max-content;
+        padding:20px;
+        padding-bottom: 0;
+        padding-top:1px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .navigation{
+        bottom:0;
+        padding:6px;
+        border-radius: 5px 5px 5px 5px;
+        width: max-content;
+    }
 }
 

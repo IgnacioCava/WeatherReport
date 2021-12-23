@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './SearchBar.css'
+import mag from './mag.png'
 
 export default function SearchBar({onSearch}){
 
@@ -15,8 +16,11 @@ export default function SearchBar({onSearch}){
                     newCitySetter('')
                 }
             }}>
-            <input type="text" className="inputEntry" placeholder="Busque una ciudad..." value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
-            <input type="submit" className="submitButton" value="Buscar"/>
+            <div style={{display:'flex', flexDirection:'row'}}>
+                <input type="text" className="inputEntry" placeholder="Busque una ciudad..." value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
+                <input type="submit" className="submitButton" value="Buscar"/>
+                <input type="image" className="submitButtonImage" src={mag} alt='search' style={{height:'22px',width:'22px'}}/>
+            </div>
             </form>
         </div>
     )

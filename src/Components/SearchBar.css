@@ -8,6 +8,7 @@ input{
 .inputEntry{
     border-radius: 4px 0 0 4px;
     border: 1px solid white;
+    
 }
 
 .submitButton {
@@ -23,4 +24,28 @@ input{
 .submitButton:hover {
     background-color: rgb(64, 167, 88);
     color: white;  
+}
+
+.submitButtonImage{
+    background-color: white;
+    border-radius: 0px 4px 4px 0px;
+    margin-right:5px;
+    transition: 0.1s;
+    display: none;
+}
+
+.submitButtonImage:active {
+    background-color: rgb(129, 192, 228);  
+}
+
+@media (max-width: 768px) {
+    .inputEntry{
+        border: none;
+    }
+    .submitButton{
+        display:none
+    }
+    .submitButtonImage{
+        display: unset;
+    }
 }

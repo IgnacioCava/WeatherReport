@@ -11,6 +11,10 @@
     transform: scale(1.1);
 }
 
+.nightCard:hover button.closing{
+    display: unset;
+}
+
 .nightTitleContainer{
     padding-top: 30px;
     margin:0;

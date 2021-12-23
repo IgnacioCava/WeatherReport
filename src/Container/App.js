@@ -13,6 +13,7 @@ import './backgrounds/bodyBackground.css'
 
 function App() {
 
+  var IP=''
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
   const [cities, setCities] = useState([]);
 
@@ -25,7 +26,8 @@ function App() {
         if(resource.main !== undefined){
           console.log(resource)
           const city = {
-            min: ~~resource.main.temp_min,
+            country: resource.sys.country,
+            min:  Math.floor(resource.main.temp_min),
             max: Math.ceil(resource.main.temp_max),
             img: resource.weather[0].icon,
             id: resource.id,
@@ -54,23 +56,24 @@ function App() {
   }
   
   /******DETECT USER'S CURRENT LOCATION********/
-  // var IP=''
-  
-  // if(cities.length===0){
-  //   fetch(`http://ipwhois.app/json/${IP}`)
-  //   .then(r => r.json())
-  //   .then((resource) => {
-  //     onSearch(resource.city, resource.country_code)
-  //     console.log(resource)
-  //   })
-  // }
+  function locator(){
+    
+    fetch(`http://ipwhois.app/json/${IP}`)
+    .then(r => r.json())
+    .then((resource) => {
+      let filter = cities.find(c => c.name===resource.city)
+      if(filter) return alert('Your location has already been displayed')
+      onSearch(resource.city, resource.country_code)
+      console.log(resource)
+    })
+  }
   /********************************************/
   
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array
   }
 
-
+  console.log(cities)
   function onFilter(ciudadId) {
     let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
     if(ciudad.length > 0) {
@@ -93,7 +96,7 @@ function App() {
   return (
     <div className="App">
       
-      <Nav onSearch={ onSearch }/>
+      <Nav onSearch={ onSearch } locator={ locator }/>
       <div style={{height:'70px'}}></div>
       <Routes>
         <Route

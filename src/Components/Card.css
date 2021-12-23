@@ -10,6 +10,10 @@
     transform: scale(1.1);
 }
 
+.Card:hover button.closing{
+    display: unset;
+}
+
 .closing{
     position: absolute;
     z-index: 1;
@@ -22,6 +26,13 @@
     transition: .2s;
     border: 2px solid rgb(220,53,69);
     box-sizing: border-box;
+    display: none;
+}
+
+@media only screen and (max-width:768px){
+    .closing{
+        display: unset;
+    }
 }
 
 .closing:hover{
