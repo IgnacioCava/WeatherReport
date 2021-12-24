@@ -10,6 +10,8 @@ import './backgrounds/dawn.jpg'
 import './backgrounds/day.jpg'
 import './backgrounds/night.jpg'
 import './backgrounds/bodyBackground.css'
+import tick from '../Components/tick.png'
+import error from './error.png'
 
 function App() {
 
@@ -45,11 +47,16 @@ function App() {
           };
 
           let foundCity = cities.find(c => c.id === city.id)
-          if(foundCity) return alert('Esta ciudad ya se encuentra en la lista')
-          else setCities(previousCities => [...previousCities, city]);
-          
+          if(foundCity) {
+            searchHandler('This location is already on screen')
+          }
+          else {
+            setCities(previousCities => [...previousCities, city]);
+            searchHandler('Location found')
+          }
         } else {
-          alert('Ciudad no encontrada');
+          searchHandler('No location found')
+
         }
       });
 
@@ -62,13 +69,50 @@ function App() {
     .then(r => r.json())
     .then((resource) => {
       let filter = cities.find(c => c.name===resource.city)
-      if(filter) return alert('Your location has already been displayed')
-      onSearch(resource.city, resource.country_code)
+      if(filter) {
+        searchHandler('Your location has already been displayed')
+      }
+      else{
+        onSearch(resource.city, resource.country_code)
+      }
+      
       console.log(resource)
     })
   }
   /********************************************/
   
+
+  function searchHandler(message){
+
+    document.querySelector('.searchMessage').style.cssText = `
+        top : 60px;
+        visibility : visible;
+        border-left: 10px solid rgb(255, 44, 44);
+      `
+    document.querySelector('.searchState').innerHTML='Error'
+    document.querySelector('.searchIcon').src=error
+    document.querySelector('.searchHandled').innerHTML=message
+
+    if(message==="Location found"){
+      
+      document.querySelector('.searchMessage').style.cssText = `
+        top : 60px;
+        visibility : visible;
+        border-left: 10px solid rgb(44, 165, 72);
+      `
+      document.querySelector('.searchState').innerHTML='Success'
+      document.querySelector('.searchIcon').src=tick
+    }
+
+    setTimeout(()=>{
+      document.querySelector('.searchMessage').style.cssText = `
+      top : -30px;
+      visibility : hidden;
+    `},
+    2000)
+  }
+
+
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array
   }
@@ -95,7 +139,15 @@ function App() {
 
   return (
     <div className="App">
-      
+
+      <div className="searchMessage">
+          <img className="searchIcon" src={tick}/>
+          <div>
+              <p className="searchState">Success</p>
+              <p className="searchHandled">Location found</p>
+          </div>
+      </div>
+
       <Nav onSearch={ onSearch } locator={ locator }/>
       <div style={{height:'70px'}}></div>
       <Routes>
