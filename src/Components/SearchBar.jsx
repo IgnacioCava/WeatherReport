@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './SearchBar.css'
 import mag from './mag.png'
-import tick from './tick.png'
 
 export default function SearchBar({onSearch}){
 

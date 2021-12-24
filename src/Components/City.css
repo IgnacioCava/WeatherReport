@@ -163,6 +163,9 @@
         margin: 0;
         border-radius: 8px 8px 0 0;
     }
+    .closingMax:hover{
+        border-radius: 6px 6px 0 0;
+    }
     .atmosphericData{
         flex-direction: row;
         width: 100%;

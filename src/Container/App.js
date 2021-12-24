@@ -10,7 +10,7 @@ import './backgrounds/dawn.jpg'
 import './backgrounds/day.jpg'
 import './backgrounds/night.jpg'
 import './backgrounds/bodyBackground.css'
-import tick from '../Components/tick.png'
+import tick from './tick.png'
 import error from './error.png'
 
 function App() {
@@ -109,7 +109,7 @@ function App() {
       top : -30px;
       visibility : hidden;
     `},
-    2000)
+    2500)
   }
 
 
