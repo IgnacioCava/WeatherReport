@@ -141,7 +141,7 @@ function App() {
     <div className="App">
 
       <div className="searchMessage">
-          <img className="searchIcon" src={tick}/>
+          <img className="searchIcon" src={tick} alt='status'/>
           <div>
               <p className="searchState">Success</p>
               <p className="searchHandled">Location found</p>

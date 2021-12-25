@@ -43,14 +43,14 @@ export default function City({onFilter, onClose, cities}) {
                                 <div className={(cycle&&'tempData')||'nightTempData'}>
                                     <div>
                                         <h1 className='primaryTemp'>{city.temp}°</h1>
-                                        <p style={{margin:0}}>{city.min}° | {city.max}°</p>
+                                        <p className='secTemp'>{city.min}° | {city.max}°</p>
                                     </div>
                                     <div>
                                         <img className='weatherIcon' src={`http://openweathermap.org/img/wn/${ city.img }@2x.png`} alt='icon'/>
                                     </div>
 
                                     <div className='feelsLike'>
-                                        <p style={{margin:'0', 'fontSize':'larger'}}>{city.desc.charAt(0).toUpperCase()+city.desc.slice(1)}</p>
+                                        <p style={{margin:'0', 'fontSize':'larger', fontWeight:700}}>{city.desc.charAt(0).toUpperCase()+city.desc.slice(1)}</p>
                                         <p style={{margin:'0', 'fontSize':'small'}}>Feels like {city.feels_like}°</p>
                                     </div>
                                 </div>

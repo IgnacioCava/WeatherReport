@@ -8,7 +8,6 @@
 
 .Rain{
     background-image: url("./rainy-day.jpg");
-    
 }
 
 .Thunder{
@@ -25,9 +24,6 @@
 
 .NightClouds{
     background-image: url("cloudy-night.jpg");
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
 }
 
 .NightRain{
