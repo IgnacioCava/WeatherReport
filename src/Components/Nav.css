@@ -2,19 +2,18 @@
     position: fixed;
     display: flex;
     background-color: rgb(53, 58, 64);
-    justify-content: space-between;
+    justify-content: center;
+    flex:1;
     align-items: center;
     border-radius: 0 0 5px 5px;
     z-index: 3;
     right:5px;
     left:5px;
-    
 }
 
 .titleLogo{
     display:flex;
     align-items: center;
-    
 }
 
 .logo{
@@ -29,6 +28,7 @@
 }
 
 .SearchBar{
+    display: flex;
     border-radius:5px;
 }
 
@@ -59,13 +59,6 @@
     border-radius: 5px;
 }
 
-.link:focus {
-    background-color:grey;
-    padding-left: 3px;
-    padding-right: 3px;
-    border-radius: 5px;
-}
-
 .separator{
     width:10px;
     margin:10px;
@@ -84,13 +77,27 @@
     color:white
 }
 
+.header>div:nth-child(1){
+    flex:1;
+}
+
+.header>div:nth-child(3){
+    flex:1;
+    margin-left:auto;
+    justify-content: flex-end;
+}
+
 .totalNav{
     display: flex;
     flex-direction: column;
     transition: .4s;
 }
 
-@media only screen and (max-width:768px){
+@media only screen and (max-width:870px){
+
+    .header>div:nth-child(1){
+        flex:unset;
+    }
 
     .title{
         display:none
@@ -101,7 +108,7 @@
         position: fixed;
         bottom:0;
         left:50%;
-        transform: translate( -50%);
+        transform: translate(-50%);
       /*transform: translate(calc(50vw - 50%), calc(50vh - 50%)); for both horizontal and vertical centering*/
         justify-content: center;
         padding:5px;
@@ -136,6 +143,13 @@
         padding:6px;
         border-radius: 5px 5px 5px 5px;
         width: max-content;
+    }
+
+    .link:focus {
+        background-color:grey;
+        padding-left: 3px;
+        padding-right: 3px;
+        border-radius: 5px;
     }
 }
 

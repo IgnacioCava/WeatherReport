@@ -1,5 +1,4 @@
 body {
-  
   overflow: overlay;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,6 +6,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color:transparent; /*Removes highlight from button tapping on mobile*/
+
+  -webkit-touch-callout: none; /*Stops long tap selection on mobile from working*/
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /*Stops user from being able to target text with any device*/
 }
 
 body::-webkit-scrollbar{
@@ -25,3 +33,10 @@ code {
     monospace;
 }
 
+/*Makes text highlight transparent. Unnecessary for my current purpose as user-select:none makes text unselectable*/
+/* ::selection {
+  background: transparent;
+}
+::-moz-selection {
+  background: transparent;
+} */

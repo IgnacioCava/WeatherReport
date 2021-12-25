@@ -16,9 +16,9 @@ export default function SearchBar({onSearch}){
                     newCitySetter('')
                 }
             }}>
-            <div style={{display:'flex', flexDirection:'row'}}>
-                <input type="text" className="inputEntry" placeholder="Busque una ciudad..." value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
-                <input type="submit" className="submitButton" value="Buscar"/>
+            <div className='inputBox'>
+                <input type="text" className="inputEntry" placeholder="Manhattan, US" value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
+                <input type="submit" className="submitButton" value="Search"/>
                 <input type="image" className="submitButtonImage" src={mag} alt='search' style={{height:'22px',width:'22px'}}/>
             </div>
 

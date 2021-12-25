@@ -24,12 +24,11 @@ export default function Nav(props){
                         About
                         </Link>
                         <hr className="separator"/>
-                        <button className="link" style={{paddingBottom:'1px'}}onClick={props.locator}>
+                        <Link to='/' className="link" onClick={props.locator}>
                         Detect my location
-                        </button>
+                        </Link>
                     </div>
                 </div>
-                
                 
                 <div className="SearchBar">
                     <SearchBar onSearch={props.onSearch}/>

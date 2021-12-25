@@ -38,9 +38,18 @@ input{
     background-color: rgb(129, 192, 228);  
 }
 
-@media (max-width: 768px) {
+.inputBox{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 870px) {
+    .inputBox{
+        justify-content: flex-end;
+    }
     .inputEntry{
         border: none;
+        width:100%;
     }
     .submitButton{
         display:none
