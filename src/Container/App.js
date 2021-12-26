@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Cards from '../Components/Cards.jsx'
@@ -17,7 +17,9 @@ function App() {
 
   var IP=''
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState(JSON.parse(localStorage.getItem('storage')));
+
+  localStorage.setItem('storage', JSON.stringify(cities))
 
   function onSearch(city,cityCode) {
     var findings
@@ -26,7 +28,6 @@ function App() {
       findings.then(r => r.json())
       .then((resource) => {
         if(resource.main !== undefined){
-          console.log(resource)
           const city = {
             country: resource.sys.country,
             min:  Math.floor(resource.main.temp_min),
@@ -45,21 +46,16 @@ function App() {
             latitud: resource.coord.lat,
             longitud: resource.coord.lon
           };
-
           let foundCity = cities.find(c => c.id === city.id)
-          if(foundCity) {
-            searchHandler('This location is already on screen')
-          }
+
+          if(foundCity) searchHandler('This location is already on screen')
+
           else {
-            setCities(previousCities => [...previousCities, city]);
+            setCities(previousCities => [...previousCities, city])
             searchHandler('Location found')
           }
-        } else {
-          searchHandler('No location found')
-
-        }
-      });
-
+        } else searchHandler('No location found')
+      }); 
   }
   
   /******DETECT USER'S CURRENT LOCATION********/
@@ -75,12 +71,9 @@ function App() {
       else{
         onSearch(resource.city, resource.country_code)
       }
-      
-      console.log(resource)
     })
   }
   /********************************************/
-  
 
   function searchHandler(message){
 
@@ -112,12 +105,10 @@ function App() {
     2500)
   }
 
-
   function onClose(id) {
     setCities(previousCities => previousCities.filter(city => city.id !== id));//Filters city with searched id from the cities array
   }
 
-  console.log(cities)
   function onFilter(ciudadId) {
     let ciudad = cities.filter(c => c.id === parseInt(ciudadId));
     if(ciudad.length > 0) {
@@ -128,13 +119,15 @@ function App() {
   }
 
   /* SET DYNAMIC BACKGROUND FOR HTML BODY BASED ON THE USER'S DEVICE'S TIME */
-  var currentDate = new Date();
-  var time=currentDate.getHours()
-
-  if(time>=5&&time<9) document.body.className='dawn'
-  if(time>=9&&time<=17) document.body.className='day'
-  if(time>17&&time<20) document.body.className='dusk'
-  if(time>=20||time<5) document.body.className='night'
+  (function timing(){
+    var currentDate = new Date();
+    var time=currentDate.getHours()
+  
+    if(time>=5&&time<9) document.body.className='dawn'
+    if(time>=9&&time<=17) document.body.className='day'
+    if(time>17&&time<20) document.body.className='dusk'
+    if(time>=20||time<5) document.body.className='night'
+  })()
   /**************************************************************************/
 
   return (
@@ -148,7 +141,7 @@ function App() {
           </div>
       </div>
 
-      <Nav onSearch={ onSearch } locator={ locator }/>
+      <Nav onSearch={ onSearch } locator={ locator } searchHandler={ searchHandler }/>
       <div style={{height:'70px'}}></div>
       <Routes>
         <Route
@@ -166,7 +159,6 @@ function App() {
       </Routes>
 
     </div>
-
   );
 }
 

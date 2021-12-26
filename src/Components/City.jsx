@@ -34,7 +34,6 @@ export default function City({onFilter, onClose, cities}) {
                         <div className="container">
                         
                             <div className='mainData'>
-                                <div className={(cycle&&'countryDay')||'countryNight'} style={{position:'absolute', top:'5px', fontWeight:'bold'}}>{city.country}</div>
                                 <div style={{textAlign:'center'}}>
                                     <h3 className={(cycle&&'maxTitle')||'nightMaxTitle'}>{city.name}</h3>
                                     <hr className={(cycle&&'sep')||'nightSep'}/>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './SearchBar.css'
 import mag from './mag.png'
 
-export default function SearchBar({onSearch}){
+export default function SearchBar({onSearch, searchHandler}){
 
     const [newCity, newCitySetter] = useState('')
     
@@ -10,18 +10,17 @@ export default function SearchBar({onSearch}){
         <div>
             <form onSubmit={(evnt) => {
                 evnt.preventDefault()
-                if(newCity==='') alert('Debe ingresar una ciudad')
+                if(newCity==='') searchHandler('You must enter a city')
                 else {
                     onSearch(newCity)
                     newCitySetter('')
                 }
             }}>
-            <div className='inputBox'>
-                <input type="text" className="inputEntry" placeholder="Manhattan, US" value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
-                <input type="submit" className="submitButton" value="Search"/>
-                <input type="image" className="submitButtonImage" src={mag} alt='search' style={{height:'22px',width:'22px'}}/>
-            </div>
-
+                <div className='inputBox'>
+                    <input type="text" className="inputEntry" placeholder="Manhattan, US" value={newCity} onChange={(cityInput) => newCitySetter(cityInput.target.value)}/>
+                    <input type="submit" className="submitButton" value="Search"/>
+                    <input type="image" className="submitButtonImage" src={mag} alt='search' style={{height:'22px',width:'22px'}}/>
+                </div>
             </form>
         </div>
     )

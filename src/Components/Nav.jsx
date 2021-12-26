@@ -31,7 +31,7 @@ export default function Nav(props){
                 </div>
                 
                 <div className="SearchBar">
-                    <SearchBar onSearch={props.onSearch}/>
+                    <SearchBar onSearch={props.onSearch} searchHandler={props.searchHandler}/>
                 </div>
 
             </div>

@@ -4,7 +4,6 @@ body{
     background-size: 100vw 100vh;/*Remember about relative units, they are useful*/
 }
 
-
 .dusk{
     background-image:url("./dusk.jpg");
 }
