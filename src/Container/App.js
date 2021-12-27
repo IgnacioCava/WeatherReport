@@ -20,12 +20,11 @@ function App() {
   const [cities, setCities] = useState([]);
 
   useEffect(()=>{
-    function store(){
+    
       if(localStorage.getItem('storage')) setCities(JSON.parse(localStorage.getItem('storage')))
       else localStorage.setItem('storage', JSON.stringify(cities))
-    }
-    store()
-  },[])
+ 
+  },[])// eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(()=>{
     localStorage.setItem('storage', JSON.stringify(cities))
