@@ -19,12 +19,11 @@ function App() {
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
   const [cities, setCities] = useState([]);
 
-  function store(){
-    if(localStorage.getItem('storage')) setCities(JSON.parse(localStorage.getItem('storage')))
-    else localStorage.setItem('storage', JSON.stringify(cities))
-  }
-
   useEffect(()=>{
+    function store(){
+      if(localStorage.getItem('storage')) setCities(JSON.parse(localStorage.getItem('storage')))
+      else localStorage.setItem('storage', JSON.stringify(cities))
+    }
     store()
   },[])
 
