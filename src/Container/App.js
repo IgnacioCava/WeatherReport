@@ -26,9 +26,7 @@ function App() {
  
   },[])// eslint-disable-line react-hooks/exhaustive-deps
 
-  useEffect(()=>{
-    localStorage.setItem('storage', JSON.stringify(cities))
-  },[cities])
+  
 
   function onSearch(city,cityCode) {
     var findings
@@ -66,6 +64,10 @@ function App() {
         } else searchHandler('No location found')
       }); 
   }
+  
+  useEffect(()=>{
+    localStorage.setItem('storage', JSON.stringify(cities))
+  },[cities])
   
   /******DETECT USER'S CURRENT LOCATION********/
   function locator(){
