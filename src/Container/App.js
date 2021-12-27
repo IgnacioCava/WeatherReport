@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import Cards from '../Components/Cards.jsx'
@@ -17,14 +17,22 @@ function App() {
 
   var IP=''
   var apiKey = '4ae2636d8dfbdc3044bede63951a019b'
-  const [cities, setCities] = useState(JSON.parse(localStorage.getItem('storage')));
+  const [cities, setCities] = useState([]);
 
-  localStorage.setItem('storage', JSON.stringify(cities))
+  useEffect(()=>{
+    if(localStorage.getItem('storage')) setCities(JSON.parse(localStorage.getItem('storage')))
+    
+    else localStorage.setItem('storage', JSON.stringify(cities))
+  },[])
+
+  useEffect(()=>{
+    localStorage.setItem('storage', JSON.stringify(cities))
+  },[cities])
 
   function onSearch(city,cityCode) {
     var findings
-    if(cityCode) findings=fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${cityCode}&appid=${apiKey}&units=metric`)//&units=metric&lang=${language}
-    else findings=fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    if(cityCode) findings=fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${cityCode}&appid=${apiKey}&units=metric`)//&units=metric&lang=${language}
+    else findings=fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
       findings.then(r => r.json())
       .then((resource) => {
         if(resource.main !== undefined){
@@ -61,7 +69,7 @@ function App() {
   /******DETECT USER'S CURRENT LOCATION********/
   function locator(){
     
-    fetch(`http://ipwhois.app/json/${IP}`)
+    fetch(`https://ipwhois.app/json/${IP}`)
     .then(r => r.json())
     .then((resource) => {
       let filter = cities.find(c => c.name===resource.city)
